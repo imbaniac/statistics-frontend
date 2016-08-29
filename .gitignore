@@ -27,7 +27,7 @@ build/Release
 node_modules
 
 #dist folder
-dist
+
 
 
 # Mac files
