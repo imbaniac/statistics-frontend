@@ -4,16 +4,14 @@
   "description": "Front end for rails api",
   "author": "Tim Reznich",
   "scripts": {
-    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node server.js",
     "lint": "esw webpablck.config.* src server.js",
     "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --reporter spec src/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "node_modules/.bin/rimraf ./dist",
     "build-html": "babel-node ./buildHtml.js",
-    "prebuild": "npm-run-all clean-dist test lint build-html",
+    "prebuild": "npm-run-all clean-dist lint build-html",
     "build": "babel-node ./build.js",
     "postbuild": "babel-node ./server.dist.js",
 		"deploy": "gh-pages -d dist"
