@@ -10,8 +10,7 @@ class Login extends Component{
 			newUser: false,
 			email: "",
 			password: "",
-			errors: "",
-			username: this.props.username || ""
+			errors: ""
 		};
 		this.handleEmailChange = this.handleEmailChange.bind(this);
 		this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -88,7 +87,7 @@ class Login extends Component{
 							e.preventDefault();
 							this.setState({newUser: !this.state.newUser});
 						}
-					}>Register</a>
+					}>{this.state.newUser? "Login" : "Register"}</a>
 					{this.state.newUser? <input
 						type="text"
 						id="userName"
@@ -113,11 +112,14 @@ class Login extends Component{
 					</span>
 				</div>
 			</form>
-
 			</div>
 		);
 	}
 }
+
+Login.defaultProps = {
+	username: ""
+};
 
 Login.propTypes = {
 	dispatch: PropTypes.func.isRequired,
